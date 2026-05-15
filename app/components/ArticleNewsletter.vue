@@ -2,7 +2,7 @@
   <section class="border-y border-[#E5E8ED] bg-[#FFFFFF] py-8">
     <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 md:flex-row md:items-center md:justify-between">
       <div>
-        <p class="font-mono text-xs uppercase text-dimmed">Beyongo notes</p>
+        <p class="text-xs font-medium uppercase tracking-[1px] text-dimmed">Beyongo notes</p>
         <h2 class="mt-2 text-2xl font-semibold text-highlighted">Plan your stay with clearer local guidance.</h2>
         <p class="mt-2 max-w-2xl text-sm text-muted">
           Get thoughtful travel ideas, neighborhood picks, and practical planning notes.

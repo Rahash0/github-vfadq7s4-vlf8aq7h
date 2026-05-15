@@ -9,7 +9,9 @@ defineProps<{
       title: string
       slug: string
     }
+    tag?: string
     readTime?: number
+    publishedAt?: string
   }
 }>()
 
@@ -19,18 +21,18 @@ const imageFailed = ref(false)
 <template>
   <NuxtLink
     :to="`/blog/${article.category.slug}/${article.slug}`"
-    class="group block border border-[#E5E8ED] bg-[#FFFFFF] hover:bg-[#F7F5F2]"
+    class="group block bg-[#FFFFFF]"
   >
     <img
       v-if="article.image && !imageFailed"
       :src="article.image"
       :alt="article.title"
-      class="aspect-[4/3] w-full object-cover md:aspect-[16/10]"
+      class="aspect-[16/9] w-full rounded-lg object-cover"
       @error="imageFailed = true"
     >
     <div
       v-else
-      class="aspect-[4/3] w-full md:aspect-[16/10]"
+      class="aspect-[16/9] w-full"
     >
       <AppImagePlaceholder
         label="Beyongo guide"
@@ -38,25 +40,23 @@ const imageFailed = ref(false)
         tone="secondary"
       />
     </div>
-    <div class="p-4">
-      <div class="flex flex-wrap items-center gap-3">
-        <UBadge
-          color="neutral"
-          variant="subtle"
-          class="bg-[#E8EEF6] text-[#0A2540] ring-[#E5E8ED]"
-        >
-          {{ article.category.title }}
-        </UBadge>
-        <span v-if="article.readTime" class="text-xs text-muted">
+    <div class="pb-6 pt-4">
+      <AppBlogBadge :label="article.tag || article.category.title" />
+      <h3 class="mt-2 text-base font-bold leading-snug text-highlighted group-hover:text-[#D84F2A]">
+        {{ article.title }}
+      </h3>
+      <div class="mt-3 flex flex-wrap items-center gap-3">
+        <span v-if="article.publishedAt" class="text-xs font-medium leading-4 text-[#6B7380]">
+          {{ article.publishedAt }}
+        </span>
+        <span
+          v-if="article.publishedAt && article.readTime"
+          class="h-1 w-1 rounded-full bg-[#E5E8ED]"
+        />
+        <span v-if="article.readTime" class="text-xs font-medium leading-4 text-[#6B7380]">
           {{ article.readTime }} min read
         </span>
       </div>
-      <h3 class="mt-3 text-lg font-semibold text-highlighted group-hover:text-[#D84F2A]">
-        {{ article.title }}
-      </h3>
-      <p class="mt-2 text-sm leading-6 text-muted">
-        {{ article.subtitle }}
-      </p>
     </div>
   </NuxtLink>
 </template>

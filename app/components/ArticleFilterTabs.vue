@@ -11,7 +11,7 @@ const model = defineModel<string>({ default: 'all' })
 
 <template>
   <div class="overflow-x-auto">
-    <div class="inline-flex min-w-max gap-1 rounded-md border border-[#E5E8ED] bg-[#FFFFFF] p-1">
+    <div class="inline-flex min-w-max gap-1 rounded-lg bg-[#F8FAFC] p-1">
       <button
         v-for="item in items"
         :key="item.value"
@@ -19,7 +19,7 @@ const model = defineModel<string>({ default: 'all' })
         class="rounded px-3 py-1.5 text-sm font-medium transition-colors"
         :class="model === item.value
           ? 'bg-[#0A2540] text-[#FFFFFF]'
-          : 'text-[#6B7380] hover:bg-[#E8EEF6] hover:text-[#0B1220]'"
+          : 'text-[#6B7380] hover:text-[#0B1220]'"
         @click="model = item.value"
       >
         {{ item.label }}

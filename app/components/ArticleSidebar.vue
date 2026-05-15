@@ -1,7 +1,7 @@
 <template>
   <aside class="space-y-6">
     <nav class="space-y-3">
-      <p class="font-mono text-xs uppercase text-dimmed">Table of contents</p>
+      <p class="text-xs font-medium uppercase tracking-[1px] text-dimmed">Table of contents</p>
       <ul class="space-y-2 text-sm text-muted">
         <li>
           <a href="#overview" class="hover:text-[#0B1220]">Overview</a>

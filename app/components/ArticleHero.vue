@@ -61,19 +61,19 @@ const imageFailed = ref(false)
 
     <dl class="grid grid-cols-2 gap-4 border-y border-muted py-5 lg:grid-cols-4">
       <div>
-        <dt class="font-mono text-xs uppercase text-dimmed">Topic</dt>
+        <dt class="text-xs font-medium uppercase tracking-[1px] text-dimmed">Topic</dt>
         <dd class="mt-1 text-sm font-medium text-highlighted">{{ metaTopic }}</dd>
       </div>
       <div>
-        <dt class="font-mono text-xs uppercase text-dimmed">Reading time</dt>
+        <dt class="text-xs font-medium uppercase tracking-[1px] text-dimmed">Reading time</dt>
         <dd class="mt-1 text-sm font-medium text-highlighted">{{ readTime }} min read</dd>
       </div>
       <div>
-        <dt class="font-mono text-xs uppercase text-dimmed">Key way</dt>
+        <dt class="text-xs font-medium uppercase tracking-[1px] text-dimmed">Key way</dt>
         <dd class="mt-1 text-sm font-medium text-highlighted">{{ metaKeyWay }}</dd>
       </div>
       <div>
-        <dt class="font-mono text-xs uppercase text-dimmed">Best for</dt>
+        <dt class="text-xs font-medium uppercase tracking-[1px] text-dimmed">Best for</dt>
         <dd class="mt-1 text-sm font-medium text-highlighted">{{ metaBestFor }}</dd>
       </div>
     </dl>

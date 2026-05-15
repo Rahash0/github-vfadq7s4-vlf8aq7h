@@ -112,58 +112,72 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="mx-auto max-w-6xl px-4 py-8">
-    <AppBreadcrumb
-      :items="[
-        { label: 'Home', to: '/' },
-        { label: category.title },
-      ]"
-      class="mb-6"
-    />
+  <div>
+    <BeyongoHeader />
 
-    <CategoryHero
-      :title="category.title"
-      :description="category.description"
-    />
+    <div class="mx-auto max-w-6xl px-4 pb-16 pt-7">
+      <AppBreadcrumb
+        :items="[
+          { label: 'Home', to: '/' },
+          { label: category.title },
+        ]"
+        class="mb-3"
+      />
 
-    <CategoryFeatured :article="featuredArticle" />
+      <CategoryHero
+        :title="category.title"
+        :description="category.description"
+      />
 
-    <CategorySection title="Top guides">
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <ArticleCard
-          v-for="article in topGuides"
-          :key="article.slug"
-          :article="article"
-        />
+      <section class="mt-16">
+        <CategoryFeatured :article="featuredArticle" />
+      </section>
+
+      <CategorySection title="Top guides" class="mt-16">
+        <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+          <ArticleCard
+            v-for="article in topGuides"
+            :key="article.slug"
+            :article="article"
+          />
+        </div>
+      </CategorySection>
+    </div>
+
+    <section class="bg-[#E8EEF6]/45 py-16">
+      <div class="mx-auto max-w-6xl px-4">
+        <CategorySection title="Top accommodations">
+          <div class="grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+            <ArticleCard
+              v-for="article in topAccommodations"
+              :key="article.slug"
+              :article="article"
+            />
+          </div>
+        </CategorySection>
       </div>
-    </CategorySection>
+    </section>
 
-    <CategorySection title="Top accommodations">
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <ArticleCard
-          v-for="article in topAccommodations"
-          :key="article.slug"
-          :article="article"
-        />
-      </div>
-    </CategorySection>
+    <div class="mx-auto max-w-6xl px-4 pb-8 pt-16">
+      <section>
+        <h2 class="text-xl font-bold text-highlighted md:text-2xl">All guides</h2>
+        <div class="mt-6">
+          <ArticleFilterTabs v-model="activeFilter" :items="filterItems" />
+        </div>
+        <div class="mt-6 grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+          <ArticleCard
+            v-for="article in filteredArticles"
+            :key="article.slug"
+            :article="article"
+          />
+        </div>
+      </section>
 
-    <ArticleFilterTabs v-model="activeFilter" :items="filterItems" />
-
-    <CategorySection title="All guides">
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <ArticleCard
-          v-for="article in filteredArticles"
-          :key="article.slug"
-          :article="article"
-        />
-      </div>
-    </CategorySection>
-
-    <AppPagination
-      v-model:page="page"
-      :total="filteredArticles.length"
-      :items-per-page="6"
-    />
+      <AppPagination
+        v-model:page="page"
+        :total="filteredArticles.length"
+        :items-per-page="6"
+      />
+    </div>
   </div>
 </template>
